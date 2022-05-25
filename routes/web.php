@@ -17,8 +17,8 @@ $router->get('/hola', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/saludo',function(){
-    return 'hola mi nombre es german';
+$router->get('/saludo/{nombre}',function($nombre){
+    return 'hola mi nombre es ' .$nombre;
 });
 $router->post('/saludo',function(){
     return 'hola estoy creando un saludo';
@@ -32,6 +32,17 @@ $router->put('/saludo',function(){
 $router->delete('/saludo',function(){
     return 'cual es tu nombre';
 });
+
+$router->get('/calcular/{edad}',  function ($edad) {
+    if ($edad > 0 && $edad < 18) {
+        return 'Eres menor de edad';
+    }elseif($edad >=18 && $edad <=100)  {
+        return 'Eres mayor de edad';
+    } else {
+        return 'edad erronea';
+    }
+});
+
 
 
 
